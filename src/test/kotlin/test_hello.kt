@@ -3,6 +3,7 @@ package PrimeFactors
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.io.File
 import kotlin.properties.Delegates
 
 
@@ -24,6 +25,25 @@ class PrimeFactorsTest {
 
         assertEquals("one", "one two".firstWord)
 
+    }
+
+    @Test
+    fun readfile() {
+        createFile("../testKotlineFile.txt")
+    }
+
+
+    private fun readFile(fileName: String): List<String> {
+        val myList = mutableListOf<String>()
+        File(fileName).useLines { lines -> myList.addAll(lines) }
+        myList.forEachIndexed { i, line -> println("${i}: " + line) }
+        return myList
+    }
+
+
+    private fun createFile(fileName: String) {
+        var file = File(fileName)
+        file.writeText("here ...")
     }
 
 
