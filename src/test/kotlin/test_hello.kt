@@ -4,6 +4,7 @@ package PrimeFactors
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.io.File
+import java.util.*
 import kotlin.properties.Delegates
 
 
@@ -32,6 +33,19 @@ class PrimeFactorsTest {
         createFile("../testKotlineFile.txt")
     }
 
+    @Test
+    fun exeCom() {
+
+        
+        val proc = Runtime.getRuntime().exec("date +%Y-%m-%d")
+        Scanner(proc.inputStream).use {
+            while (it.hasNextLine()) println(it.nextLine())
+        }
+
+
+
+    }
+
 
     private fun readFile(fileName: String): List<String> {
         val myList = mutableListOf<String>()
@@ -49,7 +63,6 @@ class PrimeFactorsTest {
 
     private fun factorsOf(n: Int): List<Int> {
         val factors = mutableListOf<Int>()
-
 
         if (n > 1) {
             factors.add(2)
