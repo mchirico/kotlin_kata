@@ -36,7 +36,7 @@ class PrimeFactorsTest {
     @Test
     fun exeCom() {
 
-        
+
         val proc = Runtime.getRuntime().exec("date +%Y-%m-%d")
         Scanner(proc.inputStream).use {
             while (it.hasNextLine()) println(it.nextLine())
